@@ -1,5 +1,7 @@
 # CareerCraft
 
+**Live Demo:** [https://brainybots-frontend.s3-website.ap-south-1.amazonaws.com/](https://brainybots-frontend.s3-website.ap-south-1.amazonaws.com/)
+
 An AI-Powered Mentorship & Education Platform that generates dynamic learning roadmaps, assesses programming knowledge, and provides highly-realistic job simulations. 
 
 ## Structure
