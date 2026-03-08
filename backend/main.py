@@ -8,7 +8,7 @@ import google.generativeai as genai
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY", "DUMMY_KEY_FOR_TESTING"))
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-app = FastAPI(title="BrainyBots API")
+app = FastAPI(title="Career Craft API")
 
 # Setup CORS for the frontend connection
 app.add_middleware(
@@ -28,7 +28,7 @@ class RoadmapRequest(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"status": "ok", "message": "BrainyBots API is running"}
+    return {"status": "ok", "message": "Career Craft API is running"}
 
 @app.post("/api/chat")
 def chat_bot(msg: ChatMessage):
@@ -36,7 +36,7 @@ def chat_bot(msg: ChatMessage):
     
     # Prompt engineering to ensure the bot acts specifically as a coding assistant
     system_prompt = """
-    You are 'Helping Hands', an expert AI coding assistant belonging to the BrainyBots learning platform.
+    You are 'Helping Hands', an expert AI coding assistant belonging to the Career Craft learning platform.
     Your main goal is to help students with coding.
     If the user provides code, review it, find bugs, explain them, and provide the corrected code.
     Always format any code in your response using Markdown code blocks (e.g. ```python ).
@@ -56,7 +56,7 @@ def chat_bot(msg: ChatMessage):
                 url = "https://text.pollinations.ai/"
                 data = json.dumps({
                     "messages": [
-                        {"role": "system", "content": "You are 'Helping Hands', an expert AI coding assistant belonging to the BrainyBots learning platform. Your main goal is to help students with coding. Always format any code in your response using Markdown code blocks."},
+                        {"role": "system", "content": "You are 'Helping Hands', an expert AI coding assistant belonging to the Career Craft learning platform. Your main goal is to help students with coding. Always format any code in your response using Markdown code blocks."},
                         {"role": "user", "content": user_text}
                     ],
                     "model": "openai"
@@ -65,7 +65,7 @@ def chat_bot(msg: ChatMessage):
                 req = urllib.request.Request(
                     url, 
                     data=data,
-                    headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 BrainyBots'}
+                    headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 CareerCraft'}
                 )
                 with urllib.request.urlopen(req, timeout=40) as response:
                     text_response = response.read().decode('utf-8')
@@ -234,7 +234,7 @@ def generate_test(req: RoadmapRequest):
             req_obj = urllib.request.Request(
                 url, 
                 data=data,
-                headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 BrainyBots'}
+                headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 CareerCraft'}
             )
             with urllib.request.urlopen(req_obj, timeout=60) as response:
                 text_response = response.read().decode('utf-8')
@@ -308,7 +308,7 @@ def generate_internship(req: RoadmapRequest):
             req_obj = urllib.request.Request(
                 url, 
                 data=data,
-                headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 BrainyBots'}
+                headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 CareerCraft'}
             )
             with urllib.request.urlopen(req_obj, timeout=60) as response:
                 text_response = response.read().decode('utf-8')

@@ -1,4 +1,4 @@
-# BrainyBots
+# Career Craft
 
 An AI-Powered Mentorship & Education Platform that generates dynamic learning roadmaps, assesses programming knowledge, and provides highly-realistic job simulations. 
 
